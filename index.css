@@ -1,0 +1,64 @@
+.carousel {
+    max-width: 600px;
+    position: relative; /* to be able to place the buttons inside the carousel   */
+    margin: 0 auto;
+}
+
+.carousel .carousel-item,
+.carousel .carousel-item-hidden {
+    display: none; /* hiding all the elements */
+}
+
+.carousel .carousel-item-visible {
+    display: block; /* making the first element visible */
+    animation: fadeVisibility 0.5s; /* smoothing transition from visible slide to the next or previous slide  */
+}
+
+/* making image responsive */
+.carousel .carousel-item img {
+    width: 100%;
+    max-width: 600px; /* setting the max-width equals to .carousel maxwidth so that images covers the entire carousel  */
+    height: auto;
+}
+
+/* targeting the parent element of the buttons */
+.carousel .carousel-actions {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    /* positioning the .carousel-actions element at the middle (vertical) of the .carousel */
+    position: absolute; /* it's positioned outside the HTML document flow (no spaces are created) and it's placed relative to its parent element */
+    top: 50%; /* do not take into account the height of the .carousel-actions element (the top border of the .carousel-actions HTML element is placed at 50% of the .carousel HTML element )  */
+    /* border: 1px dotted red; */
+    transform: translateY(-50%); /* moving the .carousel-actions element 50% (of the height .carousel-actions element) up. So if the .carousel-actions height is 40px, then transform: translateY(-50%) moves the elements 20px up.*/
+}
+
+.carousel .carousel-actions button {
+    border-radius: 50px;
+    background-color: white;
+    border: 0;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+}
+
+/* adding margins to buttons (specifying the id of the button to target only that element ) */
+.carousel .carousel-actions button#carousel-button-prev {
+    margin-left: 20px;
+}
+
+.carousel .carousel-actions button#carousel-button-next {
+    margin-right: 20px;
+}
+
+@keyframes fadeVisibility {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
